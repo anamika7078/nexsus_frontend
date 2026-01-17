@@ -4,6 +4,7 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Modal from '../components/ui/Modal';
 import Select from '../components/ui/Select';
+import { apiFetch } from '../utils/api';
 
 const Quotes = () => {
     const [quotes, setQuotes] = useState([]);
@@ -22,7 +23,7 @@ const Quotes = () => {
             const searchParam = searchQuery ? `&search=${searchQuery}` : '';
             const statusParam = statusFilter !== 'all' ? `&status=${statusFilter}` : '';
 
-            const res = await fetch(`/api/quotes?${searchParam}${statusParam}`, {
+            const res = await apiFetch(`/api/quotes?${searchParam}${statusParam}`, {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
 
@@ -47,7 +48,7 @@ const Quotes = () => {
         if (!window.confirm("Are you sure you want to delete this quote?")) return;
 
         try {
-            const res = await fetch(`/api/quotes/${id}`, {
+            const res = await apiFetch(`/api/quotes/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
@@ -70,7 +71,7 @@ const Quotes = () => {
 
     const updateQuoteStatus = async (id, status) => {
         try {
-            const res = await fetch(`/api/quotes/${id}/status`, {
+            const res = await apiFetch(`/api/quotes/${id}/status`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

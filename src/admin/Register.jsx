@@ -5,6 +5,7 @@ import {
     ArrowRight, User, Chrome, Apple, Key
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { apiFetch } from '../utils/api';
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -20,7 +21,7 @@ const Register = () => {
         setLoading(true);
 
         try {
-            const res = await fetch('/api/auth/register', {
+            const res = await apiFetch('/api/auth/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password, secretKey })

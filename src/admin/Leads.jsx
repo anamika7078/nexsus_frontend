@@ -4,6 +4,7 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Modal from '../components/ui/Modal';
 import Select from '../components/ui/Select';
+import { apiFetch } from '../utils/api';
 
 const Leads = () => {
     const [leads, setLeads] = useState([]);
@@ -17,7 +18,7 @@ const Leads = () => {
         if (!window.confirm("Are you sure you want to delete this lead?")) return;
 
         try {
-            const res = await fetch(`/api/leads/${id}`, {
+            const res = await apiFetch(`/api/leads/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
@@ -40,7 +41,7 @@ const Leads = () => {
 
     const updateLeadStatus = async (id, status) => {
         try {
-            const res = await fetch(`/api/leads/${id}/status`, {
+            const res = await apiFetch(`/api/leads/${id}/status`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -95,7 +96,7 @@ const Leads = () => {
                 const searchParam = searchQuery ? `&search=${searchQuery}` : '';
                 const statusParam = statusFilter !== 'all' ? `&status=${statusFilter}` : '';
 
-                const res = await fetch(`/api/leads?${searchParam}${statusParam}`, {
+                const res = await apiFetch(`/api/leads?${searchParam}${statusParam}`, {
                     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
                 });
 

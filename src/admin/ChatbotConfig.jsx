@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { Plus, Trash2, MessageSquare } from 'lucide-react';
+import { apiFetch } from '../utils/api';
 
 const ChatbotConfig = () => {
     const [faqs, setFaqs] = useState([]);
@@ -10,7 +11,7 @@ const ChatbotConfig = () => {
 
     const fetchFaqs = async () => {
         try {
-            const res = await fetch('/api/faqs');
+            const res = await apiFetch('/api/faqs');
             const data = await res.json();
             if (data.success) setFaqs(data.faqs);
         } catch (error) {
@@ -27,7 +28,7 @@ const ChatbotConfig = () => {
     const handleAdd = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('/api/faqs', {
+            const res = await apiFetch('/api/faqs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +49,7 @@ const ChatbotConfig = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Delete this Q&A?")) return;
         try {
-            const res = await fetch(`/api/faqs/${id}`, {
+            const res = await apiFetch(`/api/faqs/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });

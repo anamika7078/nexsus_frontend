@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Users, FileText, TrendingUp, Clock, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Card from '../components/ui/Card';
+import { apiFetch } from '../utils/api';
 
 const Dashboard = () => {
     const [stats, setStats] = useState(null);
@@ -13,7 +14,7 @@ const Dashboard = () => {
 
     const fetchDashboardStats = async () => {
         try {
-            const res = await fetch('/api/dashboard/stats', {
+            const res = await apiFetch('/api/dashboard/stats', {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
 

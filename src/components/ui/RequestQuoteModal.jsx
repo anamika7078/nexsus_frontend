@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Loader, CheckCircle } from 'lucide-react';
 import Button from './Button';
 import Select from './Select';
+import { apiFetch } from '../../utils/api';
 
 const RequestQuoteModal = ({ isOpen, onClose, selectedService = '' }) => {
     const [formData, setFormData] = useState({
@@ -66,7 +67,7 @@ const RequestQuoteModal = ({ isOpen, onClose, selectedService = '' }) => {
         setError('');
 
         try {
-            const res = await fetch('/api/quotes', {
+            const res = await apiFetch('/api/quotes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

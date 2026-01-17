@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, User, Shield, Briefcase, GraduationCap } from 'lucide-react';
+import { apiFetch } from '../../utils/api';
 
 const roles = [
     { id: 'business', label: 'Business Owner', icon: Briefcase },
@@ -65,7 +66,7 @@ const Chatbot = () => {
         // Check if message looks like an email to capture lead
         const emailRegex = /\S+@\S+\.\S+/;
         if (emailRegex.test(inputText)) {
-            fetch('/api/chatbot/lead', {
+            apiFetch('/api/chatbot/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -79,7 +80,7 @@ const Chatbot = () => {
 
         // Try fetching from Knowledge Base if not an email
         try {
-            const botRes = await fetch('/api/faqs/query', {
+            const botRes = await apiFetch('/api/faqs/query', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: inputText })

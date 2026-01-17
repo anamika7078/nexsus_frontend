@@ -5,6 +5,7 @@ import {
     ArrowRight, Chrome, Apple, Home
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { apiFetch } from '../utils/api';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('/api/auth/login', {
+            const res = await apiFetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })

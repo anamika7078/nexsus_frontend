@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import Card from '../components/ui/Card';
 import Select from '../components/ui/Select';
+import { apiFetch } from '../utils/api';
 
 const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4'];
 
@@ -33,7 +34,7 @@ const Analytics = () => {
     const fetchAnalytics = async (days) => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/dashboard/analytics?days=${days}`, {
+            const response = await apiFetch(`/api/dashboard/analytics?days=${days}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }

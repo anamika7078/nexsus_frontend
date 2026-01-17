@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { User, Lock, Bell, Shield, Calendar, Mail, Phone, Building2, Eye, EyeOff, Key } from 'lucide-react';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { apiFetch } from '../utils/api';
 
 const Settings = () => {
     const [loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ const Settings = () => {
 
     const fetchRegistrationSecret = async () => {
         try {
-            const res = await fetch('/api/user/registration-secret', {
+            const res = await apiFetch('/api/user/registration-secret', {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
             if (res.ok) {
@@ -65,7 +66,7 @@ const Settings = () => {
 
     const fetchProfile = async () => {
         try {
-            const res = await fetch('/api/user/profile', {
+            const res = await apiFetch('/api/user/profile', {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
             });
 
@@ -93,7 +94,7 @@ const Settings = () => {
         setSaving(true);
 
         try {
-            const res = await fetch('/api/user/profile', {
+            const res = await apiFetch('/api/user/profile', {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -139,7 +140,7 @@ const Settings = () => {
         setSaving(true);
 
         try {
-            const res = await fetch('/api/user/password', {
+        const res = await apiFetch('/api/user/password', {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -171,7 +172,7 @@ const Settings = () => {
         setSaving(true);
 
         try {
-            const res = await fetch('/api/user/notifications', {
+            const res = await apiFetch('/api/user/notifications', {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -204,7 +205,7 @@ const Settings = () => {
         e.preventDefault();
         setSecretSaving(true);
         try {
-            const res = await fetch('/api/user/registration-secret', {
+            const res = await apiFetch('/api/user/registration-secret', {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

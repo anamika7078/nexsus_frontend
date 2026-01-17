@@ -4,6 +4,7 @@ import {
     Shield, Mail, ArrowRight, ArrowLeft, Key, CheckCircle2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { apiFetch } from '../utils/api';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const ForgotPassword = () => {
         setLoading(true);
 
         try {
-            const res = await fetch('/api/auth/forgot-password', {
+            const res = await apiFetch('/api/auth/forgot-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })
