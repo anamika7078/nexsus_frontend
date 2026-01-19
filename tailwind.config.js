@@ -4,6 +4,21 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    // Responsive grid classes
+    'lg:grid-cols-2',
+    'lg:pt-48',
+    'lg:pb-32',
+    'lg:text-7xl',
+    'lg:h-[500px]',
+    'lg:w-[400px]',
+    'lg:h-[400px]',
+    'lg:w-[300px]',
+    'lg:h-[300px]',
+    'lg:mt-0',
+    'lg:left-0',
+    'lg:right-0',
+  ],
   theme: {
     extend: {
       colors: {
