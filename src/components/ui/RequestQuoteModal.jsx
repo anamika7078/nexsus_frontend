@@ -140,7 +140,7 @@ const RequestQuoteModal = ({ isOpen, onClose, selectedService = '' }) => {
                     <button
                         onClick={handleClose}
                         disabled={loading || submitted}
-                        className="text-textSecondary hover:text-white transition-colors p-2 hover:bg-white/5 rounded-lg disabled:opacity-50"
+                        className="text-textSecondary hover:text-white transition-all duration-300 p-2 hover:bg-white/5 rounded-lg disabled:opacity-50 button-hover-lift hover:rotate-90 transform"
                     >
                         <X className="w-5 h-5" />
                     </button>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from './Container';
@@ -8,6 +8,7 @@ import Button from '../ui/Button';
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -34,8 +35,18 @@ const Navbar = () => {
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
-                        <Link key={link.name} to={link.path} className="text-textSecondary hover:text-white transition-colors text-sm font-medium">
+                        <Link
+                            key={link.name}
+                            to={link.path}
+                            className={`relative transition-colors text-sm font-medium ${location.pathname === link.path
+                                ? 'text-accent'
+                                : 'text-textSecondary hover:text-white'
+                                }`}
+                        >
                             {link.name}
+                            {location.pathname === link.path && (
+                                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                            )}
                         </Link>
                     ))}
                     <Link to="/contact">
@@ -62,7 +73,10 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="text-textSecondary hover:text-white block text-lg font-medium"
+                                className={`block text-lg font-medium transition-colors ${location.pathname === link.path
+                                    ? 'text-accent'
+                                    : 'text-textSecondary hover:text-white'
+                                    }`}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}

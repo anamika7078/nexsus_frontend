@@ -4,8 +4,12 @@ import Button from '../components/ui/Button';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { apiFetch } from '../utils/api';
-
 import SEO from '../components/ui/SEO';
+import PageTransition from '../components/ui/PageTransition';
+import MatrixRain from '../components/ui/MatrixRain';
+import GlowText from '../components/ui/GlowText';
+import GlassCard from '../components/ui/GlassCard';
+// import SpotlightCard from '../components/ui/SpotlightCard';
 
 const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -41,9 +45,11 @@ const Contact = () => {
 
 
     return (
-        <div className="pt-32 pb-20 min-h-screen">
-            <SEO title="Contact Us" description="Get in touch with Nexsus Cyber Solutions. Our team is ready to assist you with your security needs." />
-            <Container>
+        <PageTransition>
+            <div className="pt-32 pb-20 min-h-screen relative">
+                <MatrixRain opacity={0.08} speed={70} />
+                <SEO title="Contact Us" description="Get in touch with Nexsus Cyber Solutions. Our team is ready to assist you with your security needs." />
+                <Container>
                 <div className="grid lg:grid-cols-2 gap-16">
                     {/* Contact Info */}
                     <motion.div
@@ -77,13 +83,16 @@ const Contact = () => {
 
                     {/* Form */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-white/5 backdrop-blur-md border border-white/10 p-8 lg:p-12 rounded-2xl relative"
+                        initial={{ opacity: 0, x: 100, rotateY: 15 }}
+                        animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                        transition={{ duration: 1, type: "spring", delay: 0.2 }}
+                        className="flex-1"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-2xl pointer-events-none"></div>
-                        <h3 className="text-2xl font-bold text-white mb-6 relative z-10">Send a Message</h3>
+                        <GlassCard className="p-8 lg:p-12 relative overflow-hidden group">
+                        <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-accent/30 transition-colors" />
+                        <h3 className="text-3xl font-black text-white mb-8 tracking-tight relative z-10">
+                            Send a <GlowText className="text-accent">Message</GlowText>
+                        </h3>
                         <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                             <div>
                                 <label className="block text-sm text-textSecondary mb-2">Full Name</label>
@@ -134,10 +143,12 @@ const Contact = () => {
                                 )}
                             </Button>
                         </form>
+                        </GlassCard>
                     </motion.div>
                 </div>
             </Container>
         </div>
+        </PageTransition>
     );
 };
 

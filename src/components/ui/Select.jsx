@@ -87,7 +87,7 @@ const Select = ({ options, value, onChange, placeholder = 'Select an option', cl
                                     onChange(val);
                                     setIsOpen(false);
                                 }}
-                                className={`w-full text-left px-4 py-2 text-sm transition-colors hover:bg-accent/10 ${isSelected ? 'text-accent bg-accent/5' : 'text-textSecondary hover:text-white'}`}
+                                className={`w-full text-left px-4 py-2 transition-all duration-200 hover:bg-accent/10 ${isSelected ? 'text-accent bg-accent/5' : 'text-textSecondary hover:text-white'} button-hover-slide relative overflow-hidden`}
                             >
                                 {label}
                             </button>
@@ -104,7 +104,7 @@ const Select = ({ options, value, onChange, placeholder = 'Select an option', cl
                 ref={buttonRef}
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${baseStyles} ${variants[variant] || variants.default}`}
+                className={`${baseStyles} ${variants[variant] || variants.default} button-hover-lift transition-all duration-300`}
             >
                 <span className={!selectedOption && variant !== 'status' ? 'text-textSecondary' : ''}>
                     {displayValue}

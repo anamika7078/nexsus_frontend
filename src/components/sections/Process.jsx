@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Container from '../layout/Container';
+import SpotlightCard from "../ui/SpotlightCard.jsx";
 import { Search, ShieldCheck, Zap, BarChart } from 'lucide-react';
 
 const steps = [
@@ -25,24 +26,43 @@ const Process = () => {
                     {steps.map((step, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.2 }}
+                            transition={{ delay: index * 0.1, duration: 0.8 }}
                             className="relative z-10"
                         >
-                            <div className="bg-primary/90 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:border-accent/40 transition-colors h-full flex flex-col items-center text-center group">
-                                <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all text-accent border border-white/10 group-hover:border-accent group-hover:shadow-glow">
-                                    <step.icon className="w-8 h-8" />
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                                <p className="text-textSecondary text-sm">{step.desc}</p>
+                            <SpotlightCard className="p-8 h-full flex flex-col items-center text-center group border-white/5">
+                                <motion.div
+                                    className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center mb-8 relative z-10 text-accent border border-accent/20"
+                                    whileHover={{ rotateY: 180, scale: 1.1 }}
+                                >
+                                    <step.icon className="w-10 h-10" />
+                                    <div className="absolute inset-0 bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </motion.div>
+                                <h3 className="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-accent transition-colors">
+                                    {step.title}
+                                </h3>
+                                <p className="text-textSecondary text-sm leading-relaxed mb-6">
+                                    {step.desc}
+                                </p>
 
                                 {/* Number Watermark */}
-                                <div className="absolute top-2 right-4 text-6xl font-black text-white/5 -z-10 select-none">
+                                <div className="absolute -top-4 -right-2 text-8xl font-black text-white/[0.03] -z-10 select-none group-hover:text-accent/5 transition-colors">
                                     0{index + 1}
                                 </div>
-                            </div>
+
+                                <div className="mt-auto pt-4 w-full">
+                                    <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                                        <motion.div
+                                            className="h-full bg-accent"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "100%" }}
+                                            transition={{ duration: 1, delay: index * 0.2 }}
+                                        />
+                                    </div>
+                                </div>
+                            </SpotlightCard>
                         </motion.div>
                     ))}
                 </div>

@@ -1,21 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Container from '../components/layout/Container';
+import PageTransition from '../components/ui/PageTransition';
+import MatrixRain from '../components/ui/MatrixRain';
+import GlassCard from '../components/ui/GlassCard';
+import Tilt3DCard from '../components/ui/Tilt3DCard';
+import GlowText from '../components/ui/GlowText';
+import SEO from '../components/ui/SEO';
 import { Building2, Landmark, Stethoscope, ShoppingBag, Plane } from 'lucide-react';
 
 const IndustryCard = ({ icon: Icon, title, description, delay }) => (
     <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9, rotateX: -15 }}
+        whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
         viewport={{ once: true }}
-        transition={{ delay, duration: 0.5 }}
-        className="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-colors group"
+        transition={{ delay, duration: 0.8, type: "spring" }}
     >
-        <div className="bg-accent/10 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <Icon className="w-7 h-7 text-accent" />
-        </div>
-        <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
-        <p className="text-textSecondary leading-relaxed">{description}</p>
+        <Tilt3DCard tiltAmount={10}>
+            <GlassCard className="p-8 h-full group hover:border-accent/40 transition-all duration-500">
+                <motion.div 
+                    className="bg-accent/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-accent border border-accent/20 relative z-10"
+                    whileHover={{ rotateY: 180, scale: 1.1 }}
+                >
+                    <Icon className="w-8 h-8" />
+                    <div className="absolute inset-0 bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.div>
+                <h3 className="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-accent transition-colors">{title}</h3>
+                <p className="text-textSecondary leading-relaxed text-sm">{description}</p>
+            </GlassCard>
+        </Tilt3DCard>
     </motion.div>
 );
 
@@ -54,24 +67,36 @@ const Industries = () => {
     ];
 
     return (
-        <main className="pt-24 pb-20">
-            <Container>
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Industries We <span className="text-accent">Protect</span>
-                    </h1>
-                    <p className="text-textSecondary text-lg">
-                        Tailored cybersecurity solutions for sectors where data integrity and operational continuity are critical.
-                    </p>
-                </div>
+        <PageTransition>
+            <main className="pt-32 pb-20 relative bg-3d-particles min-h-screen">
+                <MatrixRain opacity={0.1} speed={70} />
+                <SEO title="Industries" description="Tailored cybersecurity solutions for sectors where data integrity and operational continuity are critical." />
+                
+                <Container>
+                    <div className="text-center max-w-3xl mx-auto mb-24 relative z-10">
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="inline-block px-4 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold tracking-widest uppercase mb-6"
+                        >
+                            SPECIALIZED SECTORS
+                        </motion.div>
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none">
+                            Industries We <GlowText className="text-accent">Protect</GlowText>
+                        </h1>
+                        <p className="text-textSecondary text-xl leading-relaxed">
+                            Tailored cybersecurity solutions for sectors where data integrity and operational continuity are critical.
+                        </p>
+                    </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {industries.map((ind, index) => (
-                        <IndustryCard key={index} {...ind} delay={index * 0.1} />
-                    ))}
-                </div>
-            </Container>
-        </main>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                        {industries.map((ind, index) => (
+                            <IndustryCard key={index} {...ind} delay={index * 0.1} />
+                        ))}
+                    </div>
+                </Container>
+            </main>
+        </PageTransition>
     );
 };
 

@@ -1,0 +1,314 @@
+@keyframes rotateScene {
+    0% { transform: rotateY(0deg) rotateX(70deg); }
+    100% { transform: rotateY(360deg) rotateX(70deg); }
+}
+
+@keyframes animateTop {
+    0% { transform: rotateY(0deg) translateZ(25px); }
+    50% { transform: rotateY(0deg) translateZ(0); }
+    100% { transform: rotateY(0deg) translateZ(25px); }
+}
+
+@keyframes animateFaceTwo {
+    0% { transform: rotateX(-90deg) translateZ(-25px); height: 50px; }
+    50% { transform: rotateX(-90deg) translateZ(0px); height: 0; }
+    100% { transform: rotateX(-90deg) translateZ(-25px); height: 50px; }
+}
+
+@keyframes animateFaceThree {
+    0% { transform: rotateY(90deg) translateZ(25px); width: 50px; }
+    50% { transform: rotateY(90deg) translateZ(50px); width: 0; }
+    100% { transform: rotateY(90deg) translateZ(25px); width: 50px; }
+}
+
+@keyframes animateFaceFour {
+    0% { transform: rotateY(-90deg) translateZ(25px); width: 50px; }
+    50% { transform: rotateY(-90deg) translateZ(0px); width: 0; }
+    100% { transform: rotateY(-90deg) translateZ(25px); width: 50px; }
+}
+
+@keyframes animateFaceFive {
+    0% { transform: rotateX(-90deg) translateZ(25px); height: 50px; }
+    50% { transform: rotateX(-90deg) translateZ(50px); height: 0; }
+    100% { transform: rotateX(-90deg) translateZ(25px); height: 50px; }
+}
+
+.cube-container {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 1000px;
+    transform: scale(0.8);
+}
+
+@media (min-width: 1024px) {
+    .cube-container {
+        transform: scale(1);
+    }
+}
+
+.cube-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg) rotateX(40deg) rotateZ(45deg);
+}
+
+.cube-top {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    margin: 0;
+    backface-visibility: hidden;
+}
+
+.cube-face {
+    margin: 0;
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    backface-visibility: hidden;
+    contain: layout;
+}
+
+.cube-face-1 {
+    transform: rotateY(0deg) translateZ(25px);
+    background-color: rgba(111, 168, 255, 0.3);
+    border: 1px solid rgba(111, 168, 255, 0.5);
+}
+
+.cube-face-2 {
+    transform: rotateX(-90deg) translateZ(-25px);
+    background-color: rgba(63, 94, 150, 0.2);
+    border: 1px solid rgba(111, 168, 255, 0.3);
+}
+
+.cube-face-3 {
+    transform: rotateY(90deg) translateZ(25px);
+    background-color: rgba(63, 94, 150, 0.3);
+    border: 1px solid rgba(111, 168, 255, 0.3);
+}
+
+.cube-face-4 {
+    transform: rotateY(-90deg) translateZ(25px);
+    background-color: rgba(63, 94, 150, 0.3);
+    border: 1px solid rgba(111, 168, 255, 0.3);
+}
+
+.cube-face-5 {
+    transform: rotateX(-90deg) translateZ(25px);
+    background-color: rgba(63, 94, 150, 0.2);
+    border: 1px solid rgba(111, 168, 255, 0.3);
+}
+
+/* Row positioning */
+.cube-top-1, .cube-top-2, .cube-top-3, .cube-top-4, .cube-top-5, .cube-top-6, .cube-top-7, .cube-top-8, .cube-top-9, .cube-top-10 { top: 0; }
+.cube-top-11, .cube-top-12, .cube-top-13, .cube-top-14, .cube-top-15, .cube-top-16, .cube-top-17, .cube-top-18, .cube-top-19, .cube-top-20 { top: 50px; }
+.cube-top-21, .cube-top-22, .cube-top-23, .cube-top-24, .cube-top-25, .cube-top-26, .cube-top-27, .cube-top-28, .cube-top-29, .cube-top-30 { top: 100px; }
+.cube-top-31, .cube-top-32, .cube-top-33, .cube-top-34, .cube-top-35, .cube-top-36, .cube-top-37, .cube-top-38, .cube-top-39, .cube-top-40 { top: 150px; }
+.cube-top-41, .cube-top-42, .cube-top-43, .cube-top-44, .cube-top-45, .cube-top-46, .cube-top-47, .cube-top-48, .cube-top-49, .cube-top-50 { top: 200px; }
+.cube-top-51, .cube-top-52, .cube-top-53, .cube-top-54, .cube-top-55, .cube-top-56, .cube-top-57, .cube-top-58, .cube-top-59, .cube-top-60 { top: 250px; }
+.cube-top-61, .cube-top-62, .cube-top-63, .cube-top-64, .cube-top-65, .cube-top-66, .cube-top-67, .cube-top-68, .cube-top-69, .cube-top-70 { top: 300px; }
+.cube-top-71, .cube-top-72, .cube-top-73, .cube-top-74, .cube-top-75, .cube-top-76, .cube-top-77, .cube-top-78, .cube-top-79, .cube-top-80 { top: 350px; }
+.cube-top-81, .cube-top-82, .cube-top-83, .cube-top-84, .cube-top-85, .cube-top-86, .cube-top-87, .cube-top-88, .cube-top-89, .cube-top-90 { top: 400px; }
+.cube-top-91, .cube-top-92, .cube-top-93, .cube-top-94, .cube-top-95, .cube-top-96, .cube-top-97, .cube-top-98, .cube-top-99, .cube-top-100 { top: 450px; }
+
+/* Column positioning */
+.cube-top-1, .cube-top-11, .cube-top-21, .cube-top-31, .cube-top-41, .cube-top-51, .cube-top-61, .cube-top-71, .cube-top-81, .cube-top-91 { left: 0; }
+.cube-top-2, .cube-top-12, .cube-top-22, .cube-top-32, .cube-top-42, .cube-top-52, .cube-top-62, .cube-top-72, .cube-top-82, .cube-top-92 { left: 50px; }
+.cube-top-3, .cube-top-13, .cube-top-23, .cube-top-33, .cube-top-43, .cube-top-53, .cube-top-63, .cube-top-73, .cube-top-83, .cube-top-93 { left: 100px; }
+.cube-top-4, .cube-top-14, .cube-top-24, .cube-top-34, .cube-top-44, .cube-top-54, .cube-top-64, .cube-top-74, .cube-top-84, .cube-top-94 { left: 150px; }
+.cube-top-5, .cube-top-15, .cube-top-25, .cube-top-35, .cube-top-45, .cube-top-55, .cube-top-65, .cube-top-75, .cube-top-85, .cube-top-95 { left: 200px; }
+.cube-top-6, .cube-top-16, .cube-top-26, .cube-top-36, .cube-top-46, .cube-top-56, .cube-top-66, .cube-top-76, .cube-top-86, .cube-top-96 { left: 250px; }
+.cube-top-7, .cube-top-17, .cube-top-27, .cube-top-37, .cube-top-47, .cube-top-57, .cube-top-67, .cube-top-77, .cube-top-87, .cube-top-97 { left: 300px; }
+.cube-top-8, .cube-top-18, .cube-top-28, .cube-top-38, .cube-top-48, .cube-top-58, .cube-top-68, .cube-top-78, .cube-top-88, .cube-top-98 { left: 350px; }
+.cube-top-9, .cube-top-19, .cube-top-29, .cube-top-39, .cube-top-49, .cube-top-59, .cube-top-69, .cube-top-79, .cube-top-89, .cube-top-99 { left: 400px; }
+.cube-top-10, .cube-top-20, .cube-top-30, .cube-top-40, .cube-top-50, .cube-top-60, .cube-top-70, .cube-top-80, .cube-top-90, .cube-top-100 { left: 450px; }
+
+/* Animation delays for wave effect */
+.cube-top-45 .cube-face-1, .cube-top-46 .cube-face-1, .cube-top-55 .cube-face-1, .cube-top-56 .cube-face-1 {
+    animation: animateTop 2s ease-in-out 0s infinite forwards;
+}
+.cube-top-45 .cube-face-2, .cube-top-46 .cube-face-2, .cube-top-55 .cube-face-2, .cube-top-56 .cube-face-2 {
+    animation: animateFaceTwo 2s ease-in-out 0s infinite forwards;
+}
+.cube-top-45 .cube-face-3, .cube-top-46 .cube-face-3, .cube-top-55 .cube-face-3, .cube-top-56 .cube-face-3 {
+    animation: animateFaceThree 2s ease-in-out 0s infinite forwards;
+}
+.cube-top-45 .cube-face-4, .cube-top-46 .cube-face-4, .cube-top-55 .cube-face-4, .cube-top-56 .cube-face-4 {
+    animation: animateFaceFour 2s ease-in-out 0s infinite forwards;
+}
+.cube-top-45 .cube-face-5, .cube-top-46 .cube-face-5, .cube-top-55 .cube-face-5, .cube-top-56 .cube-face-5 {
+    animation: animateFaceFive 2s ease-in-out 0s infinite forwards;
+}
+
+.cube-top-34 .cube-face-1, .cube-top-35 .cube-face-1, .cube-top-36 .cube-face-1, .cube-top-37 .cube-face-1,
+.cube-top-44 .cube-face-1, .cube-top-54 .cube-face-1, .cube-top-64 .cube-face-1, .cube-top-65 .cube-face-1,
+.cube-top-66 .cube-face-1, .cube-top-67 .cube-face-1, .cube-top-57 .cube-face-1, .cube-top-47 .cube-face-1 {
+    animation: animateTop 2s ease-in-out 0.4s infinite forwards;
+}
+.cube-top-34 .cube-face-2, .cube-top-35 .cube-face-2, .cube-top-36 .cube-face-2, .cube-top-37 .cube-face-2,
+.cube-top-44 .cube-face-2, .cube-top-54 .cube-face-2, .cube-top-64 .cube-face-2, .cube-top-65 .cube-face-2,
+.cube-top-66 .cube-face-2, .cube-top-67 .cube-face-2, .cube-top-57 .cube-face-2, .cube-top-47 .cube-face-2 {
+    animation: animateFaceTwo 2s ease-in-out 0.4s infinite forwards;
+}
+.cube-top-34 .cube-face-3, .cube-top-35 .cube-face-3, .cube-top-36 .cube-face-3, .cube-top-37 .cube-face-3,
+.cube-top-44 .cube-face-3, .cube-top-54 .cube-face-3, .cube-top-64 .cube-face-3, .cube-top-65 .cube-face-3,
+.cube-top-66 .cube-face-3, .cube-top-67 .cube-face-3, .cube-top-57 .cube-face-3, .cube-top-47 .cube-face-3 {
+    animation: animateFaceThree 2s ease-in-out 0.4s infinite forwards;
+}
+.cube-top-34 .cube-face-4, .cube-top-35 .cube-face-4, .cube-top-36 .cube-face-4, .cube-top-37 .cube-face-4,
+.cube-top-44 .cube-face-4, .cube-top-54 .cube-face-4, .cube-top-64 .cube-face-4, .cube-top-65 .cube-face-4,
+.cube-top-66 .cube-face-4, .cube-top-67 .cube-face-4, .cube-top-57 .cube-face-4, .cube-top-47 .cube-face-4 {
+    animation: animateFaceFour 2s ease-in-out 0.4s infinite forwards;
+}
+.cube-top-34 .cube-face-5, .cube-top-35 .cube-face-5, .cube-top-36 .cube-face-5, .cube-top-37 .cube-face-5,
+.cube-top-44 .cube-face-5, .cube-top-54 .cube-face-5, .cube-top-64 .cube-face-5, .cube-top-65 .cube-face-5,
+.cube-top-66 .cube-face-5, .cube-top-67 .cube-face-5, .cube-top-57 .cube-face-5, .cube-top-47 .cube-face-5 {
+    animation: animateFaceFive 2s ease-in-out 0.4s infinite forwards;
+}
+
+.cube-top-23 .cube-face-1, .cube-top-24 .cube-face-1, .cube-top-25 .cube-face-1, .cube-top-26 .cube-face-1,
+.cube-top-27 .cube-face-1, .cube-top-28 .cube-face-1, .cube-top-38 .cube-face-1, .cube-top-48 .cube-face-1,
+.cube-top-58 .cube-face-1, .cube-top-68 .cube-face-1, .cube-top-78 .cube-face-1, .cube-top-77 .cube-face-1,
+.cube-top-76 .cube-face-1, .cube-top-75 .cube-face-1, .cube-top-74 .cube-face-1, .cube-top-73 .cube-face-1,
+.cube-top-63 .cube-face-1, .cube-top-53 .cube-face-1, .cube-top-43 .cube-face-1, .cube-top-33 .cube-face-1 {
+    animation: animateTop 2s ease-in-out 0.8s infinite forwards;
+}
+.cube-top-23 .cube-face-2, .cube-top-24 .cube-face-2, .cube-top-25 .cube-face-2, .cube-top-26 .cube-face-2,
+.cube-top-27 .cube-face-2, .cube-top-28 .cube-face-2, .cube-top-38 .cube-face-2, .cube-top-48 .cube-face-2,
+.cube-top-58 .cube-face-2, .cube-top-68 .cube-face-2, .cube-top-78 .cube-face-2, .cube-top-77 .cube-face-2,
+.cube-top-76 .cube-face-2, .cube-top-75 .cube-face-2, .cube-top-74 .cube-face-2, .cube-top-73 .cube-face-2,
+.cube-top-63 .cube-face-2, .cube-top-53 .cube-face-2, .cube-top-43 .cube-face-2, .cube-top-33 .cube-face-2 {
+    animation: animateFaceTwo 2s ease-in-out 0.8s infinite forwards;
+}
+.cube-top-23 .cube-face-3, .cube-top-24 .cube-face-3, .cube-top-25 .cube-face-3, .cube-top-26 .cube-face-3,
+.cube-top-27 .cube-face-3, .cube-top-28 .cube-face-3, .cube-top-38 .cube-face-3, .cube-top-48 .cube-face-3,
+.cube-top-58 .cube-face-3, .cube-top-68 .cube-face-3, .cube-top-78 .cube-face-3, .cube-top-77 .cube-face-3,
+.cube-top-76 .cube-face-3, .cube-top-75 .cube-face-3, .cube-top-74 .cube-face-3, .cube-top-73 .cube-face-3,
+.cube-top-63 .cube-face-3, .cube-top-53 .cube-face-3, .cube-top-43 .cube-face-3, .cube-top-33 .cube-face-3 {
+    animation: animateFaceThree 2s ease-in-out 0.8s infinite forwards;
+}
+.cube-top-23 .cube-face-4, .cube-top-24 .cube-face-4, .cube-top-25 .cube-face-4, .cube-top-26 .cube-face-4,
+.cube-top-27 .cube-face-4, .cube-top-28 .cube-face-4, .cube-top-38 .cube-face-4, .cube-top-48 .cube-face-4,
+.cube-top-58 .cube-face-4, .cube-top-68 .cube-face-4, .cube-top-78 .cube-face-4, .cube-top-77 .cube-face-4,
+.cube-top-76 .cube-face-4, .cube-top-75 .cube-face-4, .cube-top-74 .cube-face-4, .cube-top-73 .cube-face-4,
+.cube-top-63 .cube-face-4, .cube-top-53 .cube-face-4, .cube-top-43 .cube-face-4, .cube-top-33 .cube-face-4 {
+    animation: animateFaceFour 2s ease-in-out 0.8s infinite forwards;
+}
+.cube-top-23 .cube-face-5, .cube-top-24 .cube-face-5, .cube-top-25 .cube-face-5, .cube-top-26 .cube-face-5,
+.cube-top-27 .cube-face-5, .cube-top-28 .cube-face-5, .cube-top-38 .cube-face-5, .cube-top-48 .cube-face-5,
+.cube-top-58 .cube-face-5, .cube-top-68 .cube-face-5, .cube-top-78 .cube-face-5, .cube-top-77 .cube-face-5,
+.cube-top-76 .cube-face-5, .cube-top-75 .cube-face-5, .cube-top-74 .cube-face-5, .cube-top-73 .cube-face-5,
+.cube-top-63 .cube-face-5, .cube-top-53 .cube-face-5, .cube-top-43 .cube-face-5, .cube-top-33 .cube-face-5 {
+    animation: animateFaceFive 2s ease-in-out 0.8s infinite forwards;
+}
+
+.cube-top-12 .cube-face-1, .cube-top-13 .cube-face-1, .cube-top-14 .cube-face-1, .cube-top-15 .cube-face-1,
+.cube-top-16 .cube-face-1, .cube-top-17 .cube-face-1, .cube-top-18 .cube-face-1, .cube-top-19 .cube-face-1,
+.cube-top-29 .cube-face-1, .cube-top-39 .cube-face-1, .cube-top-49 .cube-face-1, .cube-top-59 .cube-face-1,
+.cube-top-69 .cube-face-1, .cube-top-79 .cube-face-1, .cube-top-89 .cube-face-1, .cube-top-88 .cube-face-1,
+.cube-top-87 .cube-face-1, .cube-top-86 .cube-face-1, .cube-top-85 .cube-face-1, .cube-top-84 .cube-face-1,
+.cube-top-83 .cube-face-1, .cube-top-82 .cube-face-1, .cube-top-72 .cube-face-1, .cube-top-62 .cube-face-1,
+.cube-top-52 .cube-face-1, .cube-top-42 .cube-face-1, .cube-top-32 .cube-face-1, .cube-top-22 .cube-face-1 {
+    animation: animateTop 2s ease-in-out 1s infinite forwards;
+}
+.cube-top-12 .cube-face-2, .cube-top-13 .cube-face-2, .cube-top-14 .cube-face-2, .cube-top-15 .cube-face-2,
+.cube-top-16 .cube-face-2, .cube-top-17 .cube-face-2, .cube-top-18 .cube-face-2, .cube-top-19 .cube-face-2,
+.cube-top-29 .cube-face-2, .cube-top-39 .cube-face-2, .cube-top-49 .cube-face-2, .cube-top-59 .cube-face-2,
+.cube-top-69 .cube-face-2, .cube-top-79 .cube-face-2, .cube-top-89 .cube-face-2, .cube-top-88 .cube-face-2,
+.cube-top-87 .cube-face-2, .cube-top-86 .cube-face-2, .cube-top-85 .cube-face-2, .cube-top-84 .cube-face-2,
+.cube-top-83 .cube-face-2, .cube-top-82 .cube-face-2, .cube-top-72 .cube-face-2, .cube-top-62 .cube-face-2,
+.cube-top-52 .cube-face-2, .cube-top-42 .cube-face-2, .cube-top-32 .cube-face-2, .cube-top-22 .cube-face-2 {
+    animation: animateFaceTwo 2s ease-in-out 1s infinite forwards;
+}
+.cube-top-12 .cube-face-3, .cube-top-13 .cube-face-3, .cube-top-14 .cube-face-3, .cube-top-15 .cube-face-3,
+.cube-top-16 .cube-face-3, .cube-top-17 .cube-face-3, .cube-top-18 .cube-face-3, .cube-top-19 .cube-face-3,
+.cube-top-29 .cube-face-3, .cube-top-39 .cube-face-3, .cube-top-49 .cube-face-3, .cube-top-59 .cube-face-3,
+.cube-top-69 .cube-face-3, .cube-top-79 .cube-face-3, .cube-top-89 .cube-face-3, .cube-top-88 .cube-face-3,
+.cube-top-87 .cube-face-3, .cube-top-86 .cube-face-3, .cube-top-85 .cube-face-3, .cube-top-84 .cube-face-3,
+.cube-top-83 .cube-face-3, .cube-top-82 .cube-face-3, .cube-top-72 .cube-face-3, .cube-top-62 .cube-face-3,
+.cube-top-52 .cube-face-3, .cube-top-42 .cube-face-3, .cube-top-32 .cube-face-3, .cube-top-22 .cube-face-3 {
+    animation: animateFaceThree 2s ease-in-out 1s infinite forwards;
+}
+.cube-top-12 .cube-face-4, .cube-top-13 .cube-face-4, .cube-top-14 .cube-face-4, .cube-top-15 .cube-face-4,
+.cube-top-16 .cube-face-4, .cube-top-17 .cube-face-4, .cube-top-18 .cube-face-4, .cube-top-19 .cube-face-4,
+.cube-top-29 .cube-face-4, .cube-top-39 .cube-face-4, .cube-top-49 .cube-face-4, .cube-top-59 .cube-face-4,
+.cube-top-69 .cube-face-4, .cube-top-79 .cube-face-4, .cube-top-89 .cube-face-4, .cube-top-88 .cube-face-4,
+.cube-top-87 .cube-face-4, .cube-top-86 .cube-face-4, .cube-top-85 .cube-face-4, .cube-top-84 .cube-face-4,
+.cube-top-83 .cube-face-4, .cube-top-82 .cube-face-4, .cube-top-72 .cube-face-4, .cube-top-62 .cube-face-4,
+.cube-top-52 .cube-face-4, .cube-top-42 .cube-face-4, .cube-top-32 .cube-face-4, .cube-top-22 .cube-face-4 {
+    animation: animateFaceFour 2s ease-in-out 1s infinite forwards;
+}
+.cube-top-12 .cube-face-5, .cube-top-13 .cube-face-5, .cube-top-14 .cube-face-5, .cube-top-15 .cube-face-5,
+.cube-top-16 .cube-face-5, .cube-top-17 .cube-face-5, .cube-top-18 .cube-face-5, .cube-top-19 .cube-face-5,
+.cube-top-29 .cube-face-5, .cube-top-39 .cube-face-5, .cube-top-49 .cube-face-5, .cube-top-59 .cube-face-5,
+.cube-top-69 .cube-face-5, .cube-top-79 .cube-face-5, .cube-top-89 .cube-face-5, .cube-top-88 .cube-face-5,
+.cube-top-87 .cube-face-5, .cube-top-86 .cube-face-5, .cube-top-85 .cube-face-5, .cube-top-84 .cube-face-5,
+.cube-top-83 .cube-face-5, .cube-top-82 .cube-face-5, .cube-top-72 .cube-face-5, .cube-top-62 .cube-face-5,
+.cube-top-52 .cube-face-5, .cube-top-42 .cube-face-5, .cube-top-32 .cube-face-5, .cube-top-22 .cube-face-5 {
+    animation: animateFaceFive 2s ease-in-out 1s infinite forwards;
+}
+
+/* Outer edges */
+.cube-top-1 .cube-face-1, .cube-top-2 .cube-face-1, .cube-top-3 .cube-face-1, .cube-top-4 .cube-face-1,
+.cube-top-5 .cube-face-1, .cube-top-6 .cube-face-1, .cube-top-7 .cube-face-1, .cube-top-8 .cube-face-1,
+.cube-top-9 .cube-face-1, .cube-top-10 .cube-face-1, .cube-top-91 .cube-face-1, .cube-top-92 .cube-face-1,
+.cube-top-93 .cube-face-1, .cube-top-94 .cube-face-1, .cube-top-95 .cube-face-1, .cube-top-96 .cube-face-1,
+.cube-top-97 .cube-face-1, .cube-top-98 .cube-face-1, .cube-top-99 .cube-face-1, .cube-top-100 .cube-face-1,
+.cube-top-11 .cube-face-1, .cube-top-21 .cube-face-1, .cube-top-31 .cube-face-1, .cube-top-41 .cube-face-1,
+.cube-top-51 .cube-face-1, .cube-top-61 .cube-face-1, .cube-top-71 .cube-face-1, .cube-top-81 .cube-face-1,
+.cube-top-20 .cube-face-1, .cube-top-30 .cube-face-1, .cube-top-40 .cube-face-1, .cube-top-50 .cube-face-1,
+.cube-top-60 .cube-face-1, .cube-top-70 .cube-face-1, .cube-top-80 .cube-face-1, .cube-top-90 .cube-face-1 {
+    animation: animateTop 2s ease-in-out 1.4s infinite forwards;
+}
+.cube-top-1 .cube-face-2, .cube-top-2 .cube-face-2, .cube-top-3 .cube-face-2, .cube-top-4 .cube-face-2,
+.cube-top-5 .cube-face-2, .cube-top-6 .cube-face-2, .cube-top-7 .cube-face-2, .cube-top-8 .cube-face-2,
+.cube-top-9 .cube-face-2, .cube-top-10 .cube-face-2, .cube-top-91 .cube-face-2, .cube-top-92 .cube-face-2,
+.cube-top-93 .cube-face-2, .cube-top-94 .cube-face-2, .cube-top-95 .cube-face-2, .cube-top-96 .cube-face-2,
+.cube-top-97 .cube-face-2, .cube-top-98 .cube-face-2, .cube-top-99 .cube-face-2, .cube-top-100 .cube-face-2,
+.cube-top-11 .cube-face-2, .cube-top-21 .cube-face-2, .cube-top-31 .cube-face-2, .cube-top-41 .cube-face-2,
+.cube-top-51 .cube-face-2, .cube-top-61 .cube-face-2, .cube-top-71 .cube-face-2, .cube-top-81 .cube-face-2,
+.cube-top-20 .cube-face-2, .cube-top-30 .cube-face-2, .cube-top-40 .cube-face-2, .cube-top-50 .cube-face-2,
+.cube-top-60 .cube-face-2, .cube-top-70 .cube-face-2, .cube-top-80 .cube-face-2, .cube-top-90 .cube-face-2 {
+    animation: animateFaceTwo 2s ease-in-out 1.4s infinite forwards;
+}
+.cube-top-1 .cube-face-3, .cube-top-2 .cube-face-3, .cube-top-3 .cube-face-3, .cube-top-4 .cube-face-3,
+.cube-top-5 .cube-face-3, .cube-top-6 .cube-face-3, .cube-top-7 .cube-face-3, .cube-top-8 .cube-face-3,
+.cube-top-9 .cube-face-3, .cube-top-10 .cube-face-3, .cube-top-91 .cube-face-3, .cube-top-92 .cube-face-3,
+.cube-top-93 .cube-face-3, .cube-top-94 .cube-face-3, .cube-top-95 .cube-face-3, .cube-top-96 .cube-face-3,
+.cube-top-97 .cube-face-3, .cube-top-98 .cube-face-3, .cube-top-99 .cube-face-3, .cube-top-100 .cube-face-3,
+.cube-top-11 .cube-face-3, .cube-top-21 .cube-face-3, .cube-top-31 .cube-face-3, .cube-top-41 .cube-face-3,
+.cube-top-51 .cube-face-3, .cube-top-61 .cube-face-3, .cube-top-71 .cube-face-3, .cube-top-81 .cube-face-3,
+.cube-top-20 .cube-face-3, .cube-top-30 .cube-face-3, .cube-top-40 .cube-face-3, .cube-top-50 .cube-face-3,
+.cube-top-60 .cube-face-3, .cube-top-70 .cube-face-3, .cube-top-80 .cube-face-3, .cube-top-90 .cube-face-3 {
+    animation: animateFaceThree 2s ease-in-out 1.4s infinite forwards;
+}
+.cube-top-1 .cube-face-4, .cube-top-2 .cube-face-4, .cube-top-3 .cube-face-4, .cube-top-4 .cube-face-4,
+.cube-top-5 .cube-face-4, .cube-top-6 .cube-face-4, .cube-top-7 .cube-face-4, .cube-top-8 .cube-face-4,
+.cube-top-9 .cube-face-4, .cube-top-10 .cube-face-4, .cube-top-91 .cube-face-4, .cube-top-92 .cube-face-4,
+.cube-top-93 .cube-face-4, .cube-top-94 .cube-face-4, .cube-top-95 .cube-face-4, .cube-top-96 .cube-face-4,
+.cube-top-97 .cube-face-4, .cube-top-98 .cube-face-4, .cube-top-99 .cube-face-4, .cube-top-100 .cube-face-4,
+.cube-top-11 .cube-face-4, .cube-top-21 .cube-face-4, .cube-top-31 .cube-face-4, .cube-top-41 .cube-face-4,
+.cube-top-51 .cube-face-4, .cube-top-61 .cube-face-4, .cube-top-71 .cube-face-4, .cube-top-81 .cube-face-4,
+.cube-top-20 .cube-face-4, .cube-top-30 .cube-face-4, .cube-top-40 .cube-face-4, .cube-top-50 .cube-face-4,
+.cube-top-60 .cube-face-4, .cube-top-70 .cube-face-4, .cube-top-80 .cube-face-4, .cube-top-90 .cube-face-4 {
+    animation: animateFaceFour 2s ease-in-out 1.4s infinite forwards;
+}
+.cube-top-1 .cube-face-5, .cube-top-2 .cube-face-5, .cube-top-3 .cube-face-5, .cube-top-4 .cube-face-5,
+.cube-top-5 .cube-face-5, .cube-top-6 .cube-face-5, .cube-top-7 .cube-face-5, .cube-top-8 .cube-face-5,
+.cube-top-9 .cube-face-5, .cube-top-10 .cube-face-5, .cube-top-91 .cube-face-5, .cube-top-92 .cube-face-5,
+.cube-top-93 .cube-face-5, .cube-top-94 .cube-face-5, .cube-top-95 .cube-face-5, .cube-top-96 .cube-face-5,
+.cube-top-97 .cube-face-5, .cube-top-98 .cube-face-5, .cube-top-99 .cube-face-5, .cube-top-100 .cube-face-5,
+.cube-top-11 .cube-face-5, .cube-top-21 .cube-face-5, .cube-top-31 .cube-face-5, .cube-top-41 .cube-face-5,
+.cube-top-51 .cube-face-5, .cube-top-61 .cube-face-5, .cube-top-71 .cube-face-5, .cube-top-81 .cube-face-5,
+.cube-top-20 .cube-face-5, .cube-top-30 .cube-face-5, .cube-top-40 .cube-face-5, .cube-top-50 .cube-face-5,
+.cube-top-60 .cube-face-5, .cube-top-70 .cube-face-5, .cube-top-80 .cube-face-5, .cube-top-90 .cube-face-5 {
+    animation: animateFaceFive 2s ease-in-out 1.4s infinite forwards;
+}
